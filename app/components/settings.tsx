@@ -219,31 +219,31 @@ export function Settings() {
   const chatStore = useChatStore();
 
   const updateStore = useUpdateStore();
-  const [checkingUpdate, setCheckingUpdate] = useState(false);
+  //const [checkingUpdate, setCheckingUpdate] = useState(false);
   const currentVersion = formatVersionDate(updateStore.version);
   const remoteId = formatVersionDate(updateStore.remoteVersion);
   const hasNewVersion = currentVersion !== remoteId;
 
-  function checkUpdate(force = false) {
-    setCheckingUpdate(true);
-    updateStore.getLatestVersion(force).then(() => {
-      setCheckingUpdate(false);
-    });
+  // function checkUpdate(force = false) {
+  //   setCheckingUpdate(true);
+  //   updateStore.getLatestVersion(force).then(() => {
+  //     setCheckingUpdate(false);
+  //   });
 
-    console.log(
-      "[Update] local version ",
-      new Date(+updateStore.version).toLocaleString(),
-    );
-    console.log(
-      "[Update] remote version ",
-      new Date(+updateStore.remoteVersion).toLocaleString(),
-    );
-  }
+  //   console.log(
+  //     "[Update] local version ",
+  //     new Date(+updateStore.version).toLocaleString(),
+  //   );
+  //   console.log(
+  //     "[Update] remote version ",
+  //     new Date(+updateStore.remoteVersion).toLocaleString(),
+  //   );
+  // }
 
-  const usage = {
-    used: updateStore.used,
-    subscription: updateStore.subscription,
-  };
+  // const usage = {
+  //   used: updateStore.used,
+  //   subscription: updateStore.subscription,
+  // };
   const [loadingUsage, setLoadingUsage] = useState(false);
   function checkUsage(force = false) {
     setLoadingUsage(true);
@@ -253,11 +253,11 @@ export function Settings() {
   }
 
   const accessStore = useAccessStore();
-  const enabledAccessControl = useMemo(
-    () => accessStore.enabledAccessControl(),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  );
+  // const enabledAccessControl = useMemo(
+  //   () => accessStore.enabledAccessControl(),
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   [],
+  // );
 
   const promptStore = usePromptStore();
   const builtinCount = SearchService.count.builtin;
@@ -267,7 +267,7 @@ export function Settings() {
   const showUsage = accessStore.isAuthorized();
   useEffect(() => {
     // checks per minutes
-    checkUpdate();
+    //checkUpdate();
     showUsage && checkUsage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -355,7 +355,7 @@ export function Settings() {
             </Popover>
           </ListItem>
 
-          <ListItem
+          {/* <ListItem
             title={Locale.Settings.Update.Version(currentVersion ?? "unknown")}
             subTitle={
               checkingUpdate
@@ -378,7 +378,7 @@ export function Settings() {
                 onClick={() => checkUpdate(true)}
               />
             )}
-          </ListItem>
+          </ListItem> */}
 
           <ListItem title={Locale.Settings.SendKey}>
             <Select
@@ -483,7 +483,7 @@ export function Settings() {
           </ListItem>
         </List>
 
-        <List>
+        {/* <List>
           {enabledAccessControl ? (
             <ListItem
               title={Locale.Settings.AccessCode.Title}
@@ -541,7 +541,7 @@ export function Settings() {
               />
             )}
           </ListItem>
-        </List>
+        </List> */}
 
         <List>
           <ListItem

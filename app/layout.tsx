@@ -7,7 +7,7 @@ import { getBuildConfig } from "./config/build";
 const buildConfig = getBuildConfig();
 
 export const metadata = {
-  title: "ChatGPT Next Web",
+  title: "BESTRUI",
   description: "Your personal ChatGPT Chat Bot.",
   viewport: {
     width: "device-width",
@@ -19,7 +19,7 @@ export const metadata = {
     { media: "(prefers-color-scheme: dark)", color: "#151515" },
   ],
   appleWebApp: {
-    title: "ChatGPT Next Web",
+    title: "BESTRUI",
     statusBarStyle: "default",
   },
 };
@@ -35,6 +35,11 @@ export default function RootLayout({
         <meta name="version" content={buildConfig.commitId} />
         <link rel="manifest" href="/site.webmanifest"></link>
         <script src="/serviceWorkerRegister.js" defer></script>
+        <script
+          async
+          src="https://umami.bestrui.top/script.js"
+          data-website-id="f06b7678-8fdb-47bd-805e-cc7fd9e5a11c"
+        ></script>
       </head>
       <body>{children}</body>
     </html>

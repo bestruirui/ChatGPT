@@ -27,8 +27,14 @@ import { useAppConfig } from "../store/config";
 export function Loading(props: { noLogo?: boolean }) {
   return (
     <div className={styles["loading-content"] + " no-dark"}>
-      {!props.noLogo && <BotIcon />}
-      <LoadingIcon />
+      <div className="sk-chase">
+        <div className="sk-chase-dot"></div>
+        <div className="sk-chase-dot"></div>
+        <div className="sk-chase-dot"></div>
+        <div className="sk-chase-dot"></div>
+        <div className="sk-chase-dot"></div>
+        <div className="sk-chase-dot"></div>
+      </div>
     </div>
   );
 }

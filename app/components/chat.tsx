@@ -598,17 +598,17 @@ export function Chat() {
     ? []
     : session.mask.context.slice();
 
-  const accessStore = useAccessStore();
+  //const accessStore = useAccessStore();
 
   if (
     context.length === 0 &&
     session.messages.at(0)?.content !== BOT_HELLO.content
   ) {
     const copiedHello = Object.assign({}, BOT_HELLO);
-    if (!accessStore.isAuthorized()) {
-      copiedHello.content = Locale.Error.Unauthorized;
-    }
-    context.push(copiedHello);
+    // if (!accessStore.isAuthorized()) {
+    //   copiedHello.content = Locale.Error.Unauthorized;
+    // }
+    // context.push(copiedHello);
   }
 
   // clear context index = context length + index in messages
